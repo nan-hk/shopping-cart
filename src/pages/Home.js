@@ -24,9 +24,9 @@ function Home() {
   }
 
   return (
-    <div className="home">
-      <div className="home__container">
-        <div>
+      <div className="home">
+        <div className="home__container">
+          <div>
             <Table sx={{ minWidth: 650 }} aria-label="simple table">
               <TableHead>
                 <TableRow>
@@ -44,7 +44,7 @@ function Home() {
                       <TableCell component="th" scope="row">
                         {row.name}
                       </TableCell>
-                      <TableCell align="right">{row.price}</TableCell>
+                      <TableCell align="right"><strong>$</strong>{row.price}</TableCell>
                       <TableCell align="right">
                         <Link
                             component="button"
@@ -61,25 +61,25 @@ function Home() {
                 ))}
               </TableBody>
             </Table>
+          </div>
+          <Modal
+              open={opened}
+              onClose={handleClose}
+              aria-labelledby="modal-modal-title"
+              aria-describedby="modal-modal-description"
+          >
+            <Box>
+              <ItemDetail
+                  item={item}
+              />
+            </Box>
+          </Modal>
         </div>
-        <Modal
-            open={opened}
-            onClose={handleClose}
-            aria-labelledby="modal-modal-title"
-            aria-describedby="modal-modal-description"
-        >
-          <Box>
-            <ItemDetail
-                item={item}
-            />
-          </Box>
-        </Modal>
+        <div className='shopping-cart' onClick={() => navigate('/cart')}>
+          <ShoppingCart id='cartIcon'/>
+          <p>{getTotalQuantity() || 0}</p>
+        </div>
       </div>
-      <div className='shopping-cart' onClick={() => navigate('/cart')}>
-        <ShoppingCart id='cartIcon'/>
-        <p>{getTotalQuantity() || 0}</p>
-      </div>
-    </div>
   )
 }
 
