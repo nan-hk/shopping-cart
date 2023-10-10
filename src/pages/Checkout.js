@@ -30,7 +30,7 @@ function Checkout() {
         <Total/>
       </div>
 
-        <div className='home' onClick={() => navigate('/')}>
+        <div className='shopping-cart' onClick={() => navigate('/')}>
             <OtherHousesIcon fontSize="large" id={"homeIcon"}/>
         </div>
     </div>
