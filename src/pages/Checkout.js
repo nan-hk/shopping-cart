@@ -1,9 +1,10 @@
-import './cart.css'
+import './checkout.css'
 import Total from '../components/Total'
 import CartItem from '../components/CartItem'
+import OtherHousesIcon from '@mui/icons-material/OtherHouses';
 import { useSelector } from 'react-redux'
 
-function Cart() {
+function Checkout() {
 
   const cart = useSelector((state) => state.cart)
 
@@ -29,8 +30,11 @@ function Cart() {
         <Total/>
       </div>
 
+        <div className='home' onClick={() => navigate('/')}>
+            <OtherHousesIcon fontSize="large" id={"homeIcon"}/>
+        </div>
     </div>
   )
 }
 
-export default Cart
+export default Checkout

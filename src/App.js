@@ -1,5 +1,5 @@
 import './App.css';
-import Cart from './pages/Cart';
+import Checkout from './pages/Checkout';
 import Home from './pages/Home';
 import {Routes, Route} from 'react-router-dom'
 
@@ -8,7 +8,7 @@ function App() {
     <div className="app">
       <Routes>
         <Route exact path='/' element={<Home />}/>
-        <Route path='/cart' element={<Cart />}/>
+        <Route path='/cart' element={<Checkout />}/>
       </Routes>
     </div>
   );
