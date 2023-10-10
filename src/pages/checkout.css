@@ -1,3 +1,7 @@
+#homeIcon{
+  color: white;
+}
+
 .cart{
   display: flex;
   margin: 30px auto;

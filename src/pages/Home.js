@@ -1,5 +1,5 @@
 import './home.css'
-import Item from '../components/Item'
+import ItemDetail from '../components/ItemDetail'
 import { ShoppingCart } from '@mui/icons-material'
 import {useNavigate} from 'react-router-dom'
 import { useSelector } from 'react-redux';
@@ -69,7 +69,7 @@ function Home() {
             aria-describedby="modal-modal-description"
         >
           <Box>
-            <Item
+            <ItemDetail
                 item={item}
             />
           </Box>

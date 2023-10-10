@@ -1,9 +1,9 @@
-import './item.css'
+import './itemDetail.css'
 import { useDispatch } from 'react-redux';
 import {addToCart} from '../redux/cartSlice';
 import {Button, ListItem, ListItemButton, ListItemText} from "@mui/material";
 
-function Item({item}) {
+function ItemDetail({item}) {
     const id = item.id;
     const title = item.name;
     const brand = item.brand;
@@ -39,4 +39,4 @@ function Item({item}) {
   )
 }
 
-export default Item
+export default ItemDetail
