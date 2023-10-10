@@ -24,6 +24,7 @@ function Checkout() {
                             price={item.price}
                             quantity={item.quantity}
                             option={item.option}
+                            availableNumber={item.option.quantity}
                         />
                     ))}
                 </div>
