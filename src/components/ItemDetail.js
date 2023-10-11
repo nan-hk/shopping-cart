@@ -1,8 +1,17 @@
 import './itemDetail.css'
-import { useDispatch } from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import {addToCart} from '../redux/cartSlice';
-import {Button, FormHelperText, ListItem, ListItemButton, ListItemText, MenuItem, Select} from "@mui/material";
-import {useState} from "react";
+import {
+    Alert,
+    Button,
+    FormHelperText,
+    ListItem,
+    ListItemButton,
+    ListItemText,
+    MenuItem,
+    Select
+} from "@mui/material";
+import { useState} from "react";
 
 function ItemDetail({item}) {
     const id = item.id;
@@ -10,14 +19,12 @@ function ItemDetail({item}) {
     const brand = item.brand;
     const price = item.price;
     const options = item.options;
-
     const dispatch = useDispatch()
     const [option, setOption] = useState('');
-
     const handleChange = (event) => {
         setOption(event.target.value);
     };
-
+    const {message} = useSelector((state) => state)
     return (
         <div className="item">
             <div>
@@ -54,13 +61,20 @@ function ItemDetail({item}) {
                     ))}
                 </Select>
             </div>
+            { message && message === 'error' ? <Alert severity="error">Out of stock</Alert> :
+                <Alert severity="success">Item added to cart successfully</Alert>
+            }
             <Button
-                disabled={!item.available || option.quantity < 1}
-                onClick={() =>
+                onClick={() => {
                     dispatch(addToCart({
                         id, title, brand, price, option
                     }))
-                }>Add to Cart
+                }
+                }
+                disabled={option.quantity < 1}
+                variant="contained"
+            >
+                <span>Add to cart</span>
             </Button>
         </div>
     )
