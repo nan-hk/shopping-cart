@@ -8,16 +8,16 @@ import {useNavigate} from "react-router-dom";
 function Checkout() {
 
     const navigate = useNavigate()
-    const cart = useSelector((state) => state.cart)
+    const {cart} = useSelector((state) => state)
 
     return (
         <div className="cart">
             <div className="cart__left">
                 <div>
                     <h3>Shopping Cart</h3>
-                    {cart?.map((item) => (
+                    {cart?.map((item, index) => (
                         <CartItem
-                            key={item.id}
+                            key={index}
                             id={item.id}
                             brand={item.brand}
                             title={item.title}

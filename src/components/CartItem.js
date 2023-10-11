@@ -16,16 +16,16 @@ function CartItem({id, brand, title, price, quantity=0, option, availableNumber}
           </p>
           <p> <strong> {option.color} , {option.power}(W), {option.storage}(kB) </strong></p>
           <div className='cartItem__incrDec'>
-            <button onClick={() => dispatch(decrementQuantity(id))}>-</button>
+            <button onClick={() => dispatch(decrementQuantity({id, option}))}>-</button>
             <p>{quantity}</p>
             <button
                 disabled={quantity >= availableNumber}
-                onClick={() => dispatch(incrementQuantity({id, availableNumber}))}
+                onClick={() => dispatch(incrementQuantity({id, availableNumber, option}))}
             >+</button>
           </div>
           <button
               className='cartItem__removeButton'
-              onClick={() => dispatch(removeItem(id))}>
+              onClick={() => dispatch(removeItem({id, option}))}>
             Remove
           </button>
         </div>
